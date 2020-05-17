@@ -14,9 +14,9 @@
 ActiveRecord::Schema.define(version: 20200516230808) do
 
   create_table "lists", force: :cascade do |t|
-    t.string   "contents"
     t.integer  "user_id"
     t.integer  "topic_id"
+    t.string   "contents"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
