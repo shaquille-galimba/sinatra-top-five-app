@@ -6,4 +6,9 @@ class TopicsController < ApplicationController
 		erb :'topics/index'
 	end
 
+	get '/topics/:slug' do
+		@topic = Topic.find_by_slug(params[:slug])
+		erb :'topics/show'
+	end
+
 end
