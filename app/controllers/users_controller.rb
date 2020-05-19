@@ -32,4 +32,16 @@ class UsersController < ApplicationController
 		erb :'users/show'
 	end
 
+	# => edit
+	get '/users/:slug/edit' do
+		@user = User.find_by_slug(params[:slug])
+		erb :'/users/edit'
+	end
+
+	patch '/users/:slug' do
+		@user = User.find_by_slug(params[:slug])
+		@user.update(name: params[:name], username: params[:username])
+		redirect "users/#{@user.slug}"
+	end
+
 end
