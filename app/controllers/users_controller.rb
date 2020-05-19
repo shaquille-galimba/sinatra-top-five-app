@@ -44,4 +44,12 @@ class UsersController < ApplicationController
 		redirect "users/#{@user.slug}"
 	end
 
+	# => destroy
+	get '/users/:slug/delete' do
+		@user = User.find_by_slug(params[:slug])
+		@user.lists.each{ |list| list.destroy }
+		@user.destroy
+		redirect '/topics'
+	end
+
 end
