@@ -2,7 +2,7 @@ class List < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :topic
 
-	def parse
+	def arrayed_contents
 		self.contents.gsub("[", "").gsub("]", "").split(",")
 	end
 end
