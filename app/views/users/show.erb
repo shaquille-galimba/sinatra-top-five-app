@@ -1,0 +1,12 @@
+<h1><%= @user.username %></h1>
+
+<ul>
+	<% @user.lists.each do |list| %>
+		<h2><%= list.topic.name %></h2>
+		<ul>
+			<% list.arrayed_contents.each.with_index(1) do |c, i| %>
+				<li><%= i %>. <%= c %></li>
+			<% end %>
+		</ul>
+	<% end %>
+</ul>
