@@ -44,4 +44,22 @@ class ListsController < ApplicationController
 		end
 	end
 
+	patch '/lists/:id' do
+		if logged_in?
+			if params[:contents].any? {|content| content.empty?}
+				redirect "/lists/#{params[:id]}/edit"
+			else
+				@list = List.find(params[:id])
+				if @list && @list.user == current_user
+					@list.update(contents: params[:contents])
+					redirect "/lists/#{@list.id}"
+				else
+					redirect "/lists/#{params[:id]}"
+				end
+			end
+		else
+			redirect '/'
+		end
+	end
+
 end
