@@ -2,8 +2,12 @@ class TopicsController < ApplicationController
 
 	# => read
 	get '/topics' do
-		@topics = Topic.all
-		erb :'topics/index'
+		if logged_in?
+			@topics = Topic.all
+			erb :'topics/index'
+		else
+			redirect '/'
+		end
 	end
 
 	get '/topics/:slug' do
