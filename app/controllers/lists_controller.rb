@@ -10,13 +10,23 @@ class ListsController < ApplicationController
 	end
 
 	post '/lists' do
-		binding.pry
 		if params[:topic_name].empty? || params[:contents].any? {|c| c.empty?}
 			redirect '/lists/new'
 		else
 			@topic = Topic.find_or_create_by(name: params[:topic_name])
 			@list = List.new(contents: params[:contents], user_id: current_user.id, topic_id: @topic.id)
 			@list.save
+			redirect "/lists/#{@list.id}"
+		end
+	end
+
+	# => read
+	get '/lists/:id' do
+		if logged_in?
+			@list = List.find(params[:id])
+			erb :'lists/show'
+		else
+			redirect '/'
 		end
 	end
 
