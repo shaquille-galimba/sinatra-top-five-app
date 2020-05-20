@@ -1,0 +1,13 @@
+<h1>Edit your top five <%= @list.topic.name %></h1>
+<br>
+
+<form class="" action="/lists/<%= @list.id %>" method="post">
+	<input id="hidden" type="hidden" name="_method" value="patch">
+
+	<% @list.arrayed_contents.each.with_index(1) do |content, index| %>
+		<label>Top <%= index %>:</label>
+		<textarea name="contents[]" rows="2" cols="25"><%= content %></textarea>
+		<br><br>
+	<% end %>
+	<input type="submit" value="edit">
+</form>

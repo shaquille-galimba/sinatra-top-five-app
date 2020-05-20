@@ -1,7 +1,7 @@
 <h2>Top five <%= @list.topic.name %> for <%= @list.user.username %></h2>
 
 <ul>
-	<% @list.arrayed_contents.each.with_index(1) do |c, i| %>
-		<li><%= i %>. <%= c %></li>
+	<% @list.arrayed_contents.each.with_index(1) do |content, index| %>
+		<li><%= index %>. <%= content %></li>
 	<% end %>
 </ul>

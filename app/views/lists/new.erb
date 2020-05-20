@@ -9,7 +9,8 @@
 
 	<% (1..5).each do |n| %>
 		<label>Top <%= n %>:</label>
-		<input type="text" name="contents[]">
+		<!-- <input type="text" name="contents[]"> -->
+		<textarea name="contents[]" rows="2" cols="25"></textarea>
 		<br><br>
 	<% end %>
 

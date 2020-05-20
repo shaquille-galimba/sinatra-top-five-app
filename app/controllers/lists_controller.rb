@@ -30,4 +30,18 @@ class ListsController < ApplicationController
 		end
 	end
 
+	# => update
+	get '/lists/:id/edit' do
+		if logged_in?
+			@list = List.find(params[:id])
+			if @list && @list.user == current_user
+				erb :'lists/edit'
+			else
+				redirect "/lists/#{params[:id]}"
+			end
+		else
+			redirect '/'
+		end
+	end
+
 end
