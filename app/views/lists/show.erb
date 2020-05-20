@@ -5,3 +5,9 @@
 		<li><%= index %>. <%= content %></li>
 	<% end %>
 </ul>
+<br>
+
+<form class="" action="/lists/<%= @list.id %>/delete" method="post">
+	<input id="hidden" type="hidden" name="_method" value="delete">
+	<input type="submit" value="Delete list">
+</form>

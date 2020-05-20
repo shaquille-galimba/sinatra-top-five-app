@@ -11,3 +11,9 @@
 		</ul>
 	<% end %>
 </ul>
+<br><br>
+
+<form class="" action="/users/<%= @user.slug %>/delete" method="post">
+	<input id="hidden" type="hidden" name="_method" value="delete">
+	<input type="submit" value="Delete account">
+</form>
