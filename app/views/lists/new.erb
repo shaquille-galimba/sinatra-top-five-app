@@ -1,0 +1,17 @@
+<h1>Create a new top five!</h1>
+<br>
+
+<form class="" action="/lists" method="post">
+
+	<label>Topic:</label>
+	<input type="text" name="list[topic_name]">
+	<br><br>
+
+	<% (1..5).each do |n| %>
+		<label>Top <%= n %>:</label>
+		<input type="text" name="list[contents][]">
+		<br><br>
+	<% end %>
+
+	<input type="submit" value="submit">
+</form>
