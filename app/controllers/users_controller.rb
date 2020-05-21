@@ -42,10 +42,16 @@ class UsersController < ApplicationController
 	end
 
 	# => read
+	get '/users' do
+		@users = User.order(:username)
+		erb :'users/index'
+	end
+
 	get '/users/:slug' do
 		@user = User.find_by_slug(params[:slug])
 		erb :'users/show'
 	end
+
 
 	# => edit
 	get '/users/:slug/edit' do

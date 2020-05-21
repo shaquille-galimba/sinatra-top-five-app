@@ -3,7 +3,7 @@ class TopicsController < ApplicationController
 	# => read
 	get '/topics' do
 		if logged_in?
-			@topics = Topic.all
+			@topics = Topic.order(:name)
 			erb :'topics/index'
 		else
 			redirect '/'

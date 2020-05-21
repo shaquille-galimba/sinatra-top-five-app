@@ -12,8 +12,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="/stylesheets/main.css" />
+		<style media="screen">
+			.links a {
+				text-decoration: none;
+				color: #385898;
+			}
+
+			.links {
+				margin: 8px auto;
+			}
+
+			.navbar ul {
+			  list-style-type: none;
+			  margin: 0;
+			  padding: 0;
+			  overflow: hidden;
+			  background-color: #333;
+			}
+
+			.navbar li {
+			  float: left;
+			}
+
+			.navbar li a {
+			  display: block;
+			  color: white;
+			  text-align: center;
+			  padding: 14px 16px;
+			  text-decoration: none;
+			}
+
+			/* Change the link color to #111 (black) on hover */
+			.navbar li a:hover {
+			  background-color: #111;
+			}
+		</style>
   </head>
   <body>
+		<% if logged_in? %>
+			<div class="navbar">
+				<ul>
+					<li><a href="/users/<%= current_user.slug %>">Profile</a></li>
+					<li><a href="/topics">Topics</a></li>
+					<li><a href="/users">Users</a></li>
+					<li style="float:right"><a href="/logout">Log out</a></li>
+				</ul>
+			</div>
+		<% end %>
     <div class="wrapper">
 
         <%= yield %>

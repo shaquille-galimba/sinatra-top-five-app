@@ -1,9 +1,7 @@
-<h1>Welcome <%= current_user.username %>!</h1>
-
 <h2>Topics</h2>
 
 <ul>
 	<% @topics.each do |topic| %>
-	<li><%= topic.name %></li>
+	<li class="links"><a href="/topics/<%= topic.slug %>"><%= topic.name %></a></li>
 	<% end %>
 </ul>
