@@ -2,6 +2,6 @@
 
 <ul>
 	<% @topics.each do |topic| %>
-	<li class="links"><a href="/topics/<%= topic.slug %>"><%= topic.name %></a></li>
+	<li><a class="links" href="/topics/<%= topic.slug %>"><%= topic.name %></a></li>
 	<% end %>
 </ul>

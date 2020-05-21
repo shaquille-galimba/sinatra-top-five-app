@@ -13,13 +13,19 @@
 
     <link rel="stylesheet" href="/stylesheets/main.css" />
 		<style media="screen">
-			.links a {
-				text-decoration: none;
-				color: #385898;
+			.lists:hover {
+				cursor: pointer;
+				background-color: #f5f8fa;
 			}
 
 			.links {
+				text-decoration: none;
+				color: #385898;
 				margin: 8px auto;
+			}
+
+			.links:hover {
+				text-decoration: underline;
 			}
 
 			.navbar ul {
@@ -52,6 +58,7 @@
 		<% if logged_in? %>
 			<div class="navbar">
 				<ul>
+					<li style="border-right: 1px solid #bbb"><a href="/lists/new">New top five</a></li>
 					<li><a href="/users/<%= current_user.slug %>">Profile</a></li>
 					<li><a href="/topics">Topics</a></li>
 					<li><a href="/users">Users</a></li>

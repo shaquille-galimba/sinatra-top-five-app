@@ -9,5 +9,11 @@
 		<textarea name="contents[]" rows="2" cols="25"><%= content %></textarea>
 		<br><br>
 	<% end %>
-	<input type="submit" value="edit">
+	<input type="submit" value="submit">
+</form>
+<br>
+
+<form class="" action="/lists/<%= @list.id %>/delete" method="post">
+	<input id="hidden" type="hidden" name="_method" value="delete">
+	<input type="submit" value="delete list">
 </form>

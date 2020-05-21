@@ -1,13 +1,13 @@
 <h1><%= @topic.name %></h1>
 
-<ul>
 	<% @topic.lists.each do |list| %>
-	<h2><%= list.user.username %></h2>
-	<ul>
-		<% list.arrayed_contents.each.with_index(1) do |c, i| %>
-			<li><%= i %>. <%= c %></li>
-		<% end %>
-	</ul>
-	<br>
+		<ul class="lists" onclick="location.href='/lists/<%= list.id %>'">
+			<h2><a class="links" href="/users/<%= list.user.slug %>"><%= list.user.username %></a></h2>
+			<ul>
+				<% list.arrayed_contents.each.with_index(1) do |c, i| %>
+					<li><%= i %>. <%= c %></li>
+				<% end %>
+			</ul>
+			<br>
+		</ul>
 	<% end %>
-</ul>

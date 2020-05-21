@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
 		if @user && @user.authenticate(params[:password])
 			session[:user_id] = @user.id
-			redirect '/topics'
+			redirect "/users/#{@user.slug}"
 		else
 			redirect '/'
 		end
