@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 			session[:user_id] = @user.id
 			redirect "/users/#{@user.slug}"
 		else
+			flash[:error] = "Your username or password is invalid. Please sign up or try again."
 			redirect '/'
 		end
 	end
