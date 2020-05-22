@@ -1,3 +1,3 @@
 #	App Overview
 
-I am going to build a top 5 of something app. Where a user can share their top 5 movies, books, games, or anything they can think of.
+A Sinatra application that allows us to give our top 5 best/recommended list of a specific topic.
