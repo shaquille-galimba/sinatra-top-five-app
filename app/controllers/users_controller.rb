@@ -105,7 +105,7 @@ class UsersController < ApplicationController
 				session.clear
 				redirect '/'
 			else
-				redirect '/topics'
+				redirect "/users/#{@user.slug}"
 			end
 		else
 			redirect '/'
