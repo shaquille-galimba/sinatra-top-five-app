@@ -33,12 +33,17 @@ class UsersController < ApplicationController
 	end
 
 	post '/signup' do
-		if User.find_by(username: params[:username]) || params.values.any? {|v| v.empty?}
+		if User.find_by(username: params[:username])
+			flash[:error] = "Username already taken."
+			redirect '/signup'
+		elsif params.values.any? {|v| v.empty?}
+			flash[:error] = "All field in the sign up form must be filled."
 			redirect '/signup'
 		else
 			@user = User.create(params)
 			session[:user_id] = @user.id
-			redirect '/topics'
+			flash[:confirm] = "Welcome to Top five! Account was successfully created!"
+			redirect "/users/#{@user.slug}"
 		end
 	end
 
