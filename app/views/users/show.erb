@@ -2,7 +2,7 @@
 <p>(<%= @user.username %>)</p>
 
 <% if @user == current_user %>
-	<input type="button" onclick="location.href='/lists/new'" value="New list">
+	<input type="button" onclick="location.href='/lists/new'" value="New top five">
 	<input type="button" onclick="location.href='/users/<%= @user.slug %>/edit'" value="Edit info">
 	<br><br>
 <% end %>
