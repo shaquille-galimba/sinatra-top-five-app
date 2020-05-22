@@ -11,11 +11,13 @@ class ListsController < ApplicationController
 
 	post '/lists' do
 		if params[:topic_name].empty? || params[:contents].any? {|c| c.empty?}
+			flash[:error] = "Make sure to complete the form."
 			redirect '/lists/new'
 		else
 			@topic = Topic.find_or_create_by(name: params[:topic_name])
 			@list = List.new(contents: params[:contents], user_id: current_user.id, topic_id: @topic.id)
 			@list.save
+			flash[:confirm] = "List created!"
 			redirect "/lists/#{@list.id}"
 		end
 	end
