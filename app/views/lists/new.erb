@@ -4,12 +4,11 @@
 <form class="" action="/lists" method="post">
 
 	<label>Topic:</label>
-	<input type="text" name="topic_name">
+	<input type="text" name="topic_name" value="<%= @topic.name if @topic %>">
 	<br><br>
 
 	<% (1..5).each do |n| %>
 		<label>Top <%= n %>:</label>
-		<!-- <input type="text" name="contents[]"> -->
 		<textarea name="contents[]" rows="2" cols="25"></textarea>
 		<br><br>
 	<% end %>
