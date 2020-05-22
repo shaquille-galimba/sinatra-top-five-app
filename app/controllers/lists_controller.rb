@@ -28,6 +28,7 @@ class ListsController < ApplicationController
 			@list = List.find(params[:id])
 			erb :'lists/show'
 		else
+			flash[:error] = "Please login or signup to view this list."
 			redirect '/'
 		end
 	end
