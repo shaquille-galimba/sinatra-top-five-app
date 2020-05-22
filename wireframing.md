@@ -42,7 +42,7 @@
 ### Attributes
 	- content
 	- user_id
-	-	topic_id
+	- topic_id
 
 ### Association
 	- belongs to a User
