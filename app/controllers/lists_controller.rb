@@ -17,7 +17,7 @@ class ListsController < ApplicationController
 			@topic = Topic.find_or_create_by(name: params[:topic_name])
 			@list = List.new(contents: params[:contents], user_id: current_user.id, topic_id: @topic.id)
 			@list.save
-			flash[:confirm] = "List created!"
+			flash[:confirm] = "Top five created!"
 			redirect "/lists/#{@list.id}"
 		end
 	end
@@ -50,11 +50,13 @@ class ListsController < ApplicationController
 	patch '/lists/:id' do
 		if logged_in?
 			if params[:contents].any? {|content| content.empty?}
+				flash[:error] = "Make sure to complete the form."
 				redirect "/lists/#{params[:id]}/edit"
 			else
 				@list = List.find(params[:id])
 				if @list && @list.user == current_user
 					@list.update(contents: params[:contents])
+					flash[:confirm] = "Top five updated!"
 					redirect "/lists/#{@list.id}"
 				else
 					redirect "/lists/#{params[:id]}"
@@ -71,6 +73,7 @@ class ListsController < ApplicationController
 			@list = List.find(params[:id])
 			if @list && @list.user == current_user
 				@list.delete
+				flash[:confirm] = "Top five deleted."
 			end
 			redirect "/users/#{current_user.slug}"
 		else
