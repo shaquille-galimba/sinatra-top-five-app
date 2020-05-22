@@ -76,15 +76,19 @@ class UsersController < ApplicationController
 
 	patch '/users/:slug' do
 		if logged_in?
-			if params[:name].empty? || params[:username]
-				redirect "/users/#{params[:slug]}"
+			if params[:name].empty? || params[:username].empty?
+				flash[:error] = "Make sure all fields are filled."
+				redirect "/users/#{params[:slug]}/edit"
 			else
 				@user = User.find_by_slug(params[:slug])
 				if @user && @user == current_user
 					@user.update(name: params[:name], username: params[:username])
+					flash[:confirm] = "Information updated!"
 					redirect "/users/#{@user.slug}"
+				else
+					redirect "/users/#{params[:slug]}"
 				end
-				redirect '/topics'
+				redirect "/users/#{@user.slug}"
 			end
 		else
 			redirect '/'
