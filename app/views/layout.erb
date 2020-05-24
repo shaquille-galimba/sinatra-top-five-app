@@ -13,19 +13,6 @@
 
     <link rel="stylesheet" href="/stylesheets/main.css" />
 		<link rel="stylesheet" href="/stylesheets/style.css">
-
-		<style media="screen">
-			.error {
-				color: red;
-			}
-
-			.confirm {
-				color: green;
-			}
-		</style>
-
-
-
   </head>
   <body>
 		<% if logged_in? %>
@@ -42,9 +29,9 @@
     <div class="wrapper">
 
 				<% if flash[:error] %>
-					<h3 class="error"><%= flash[:error] %></h3>
+					<h3 style="color: red;"><%= flash[:error] %></h3>
 				<% elsif flash[:confirm] %>
-					<h3 class="confirm"><%= flash[:confirm] %></h3>
+					<h3 style="color:green;"><%= flash[:confirm] %></h3>
 				<% end %>
 
         <%= yield %>
