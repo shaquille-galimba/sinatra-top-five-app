@@ -28,9 +28,11 @@ Specs:
 - [x] Include user input validations
 - Users can't create a list nor update one if any of the field is left blank.
 
-- [ ] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
+- [x] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
+- Error and confirmation messages are included in some parts of the app.
 
-- [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
+- [x] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
+- README.md includes all requirements.
 
 Confirm
 - [x] You have a large number of small Git commits
