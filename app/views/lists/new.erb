@@ -1,7 +1,7 @@
 <h1>Create a new top five!</h1>
 <br>
 
-<form class="" action="/lists" method="post">
+<form autocomplete="off" action="/lists" method="post">
 
 	<label>Topic:</label>
 	<input type="text" name="topic_name" value="<%= @topic.name if @topic %>">
@@ -9,7 +9,7 @@
 
 	<% (1..5).each do |n| %>
 		<label>Top <%= n %>:</label>
-		<textarea name="contents[]" rows="2" cols="25"></textarea>
+		<input style="width:500px;" type="text" name="contents[]">
 		<br><br>
 	<% end %>
 
