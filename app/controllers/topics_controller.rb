@@ -11,6 +11,7 @@ class TopicsController < ApplicationController
 		erb :'topics/show'
 	end
 
+	# => create list for a topic
 	post '/topics/:slug/new' do
 		if logged_in?
 			@topic = Topic.find_by_slug(params[:slug])
