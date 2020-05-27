@@ -83,7 +83,7 @@ class ListsController < ApplicationController
 				@list.delete
 				flash[:confirm] = "Top five deleted."
 			end
-			redirect "/users/#{current_user.slug}"
+			redirect '/lists'
 		else
 			redirect '/'
 		end

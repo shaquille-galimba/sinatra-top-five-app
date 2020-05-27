@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 		@user = User.find_by(username: params[:username])
 		if @user && @user.authenticate(params[:password])
 			session[:user_id] = @user.id
-			redirect "/users/#{@user.slug}"
+			redirect '/lists'
 		else
 			flash[:error] = "Your username or password is invalid. Please sign up or try again."
 			redirect '/'
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 		if !logged_in?
 			erb :'users/signup'
 		else
-			redirect '/topics'
+			redirect '/lists'
 		end
 	end
 
@@ -41,8 +41,8 @@ class UsersController < ApplicationController
 		else
 			@user = User.create(params)
 			session[:user_id] = @user.id
-			flash[:confirm] = "Welcome to Top five! Account was successfully created!"
-			redirect "/users/#{@user.slug}"
+			flash[:confirm] = "Account was successfully created!"
+			redirect '/lists'
 		end
 	end
 

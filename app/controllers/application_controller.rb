@@ -14,7 +14,7 @@ class ApplicationController < Sinatra::Base
 		if !logged_in?
     	erb :index
 		else
-			redirect "/users/#{current_user.slug}"
+			redirect '/lists'
 		end
   end
 
