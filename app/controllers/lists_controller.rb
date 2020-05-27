@@ -2,7 +2,7 @@ class ListsController < ApplicationController
 
 	get '/lists' do
 		if logged_in?
-			@lists = List.all
+			@lists = List.order(created_at: :desc)
 			erb :'lists/index'
 		else
 			redirect '/'
