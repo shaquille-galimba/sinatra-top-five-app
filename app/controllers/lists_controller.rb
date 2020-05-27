@@ -1,5 +1,14 @@
 class ListsController < ApplicationController
 
+	get '/lists' do
+		if logged_in?
+			@lists = List.all
+			erb :'lists/index'
+		else
+			redirect '/'
+		end
+	end
+
 	# => create
 	get '/lists/new' do
 		if logged_in?
