@@ -25,4 +25,4 @@ Bug reports and pull requests at https://github.com/shaquille-galimba/sinatra-to
 
 ## License
 
-This project is an open source and under the temrs of the [MIT License](https://opensource.org/licenses/MIT).
+This project is an open source and under the terms of the [MIT License](https://opensource.org/licenses/MIT).
